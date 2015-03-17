@@ -10,23 +10,32 @@ var Search = function() {
 }
 
 Search.prototype.getSubjects = function(Id, mainCallback) {
+	
 	var subject= []; 
 	//async function which read multiple files , openFile is array of files
+	
+	//satish: wronf param name File
 	async.each(openFiles, function(File, callback) {
 	console.log("Processing file " + File);
 		fs.readFile(File, function(err, data) {
 			if(data){
 				console.log("Sarted reading : " + File);
+				
+				//Satish: add null check for data
+
 				var file = JSON.parse(data);
 				var recor = file.enrolledStudents;
 				for ( var i=0; i< recor.length; i++)
 				{
 					console.log("Reading .... " + i);
 					//cheking if Id is enrolled for subject
+					
+					//satish wrong variable name Id
 					if(Id == recor[i].id)
 					{
 						//pushing subject to array
 						subject.push(file.subjectName);
+						
 						//stops iterating and comes out of loop
 						break;
 					}
@@ -35,6 +44,7 @@ Search.prototype.getSubjects = function(Id, mainCallback) {
 				callback();
 			}
 			else {
+				//Satish : whenever possible put return statment after callback to finish the execution
 				callback("failed to prossesed : " + File);
 			}
 		});
