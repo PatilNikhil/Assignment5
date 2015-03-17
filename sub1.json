@@ -1,0 +1,23 @@
+{
+"subjectId": 12,
+"subjectName": "Advanced Math Part 1",
+"enrolledStudents": 
+	[
+		{
+			"id": 123,
+			"score": 345
+		},
+		{
+			"id": 124,
+			"score": 325
+		},
+		{
+			"id": 125,
+			"score": 239
+		},
+		{
+			"id": 126,
+			"score": 439
+		}
+	]
+}
